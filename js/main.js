@@ -1,21 +1,22 @@
 const pageDiv = document.getElementById("container");
 //Genero 5 numeri in maniera randomica, all'interno di un array.
 
-let RandomNumbers = [];
+let randomNumbers = [];
 let selectedNumbers = [];
-
-while (RandomNumbers.length < 5) {
+let correctNumbers = [];
+while (randomNumbers.length < 5) {
     let number = numeroRandom(1, 99);
-    if (RandomNumbers.indexOf(number) === -1) {
+    if (randomNumbers.indexOf(number) === -1) {
         const paragraph = document.createElement("p");
-        RandomNumbers.push(number);
+        randomNumbers.push(number);
         paragraph.innerText += number;
         pageDiv.appendChild(paragraph);
         paragraph.classList.add("numbers");
     }
+    
 
 }
-console.log(`Numeri randomici: ${RandomNumbers}`);
+console.log(`Numeri randomici: ${randomNumbers}`);
 
 //Aspetto 30 secondi ed eseguo funzione
 const myTimer = setTimeout(ask5Numbers, 3 * 1000); //ToDo: cambia in 30 secondi
@@ -33,9 +34,19 @@ function ask5Numbers() {
     pageDiv.innerHTML = "";
     setTimeout(function () {
         while (selectedNumbers.length < 5) {
-            let number = prompt("Inserisci uno dei numeri visualizzati");
+            let number = Number(prompt("Inserisci uno dei numeri visualizzati"));
             selectedNumbers.push(number);
         }
+        console.log(`Numeri scelti: ${selectedNumbers}`);
+        correctNumbers = randomNumbers.filter(function(n) {
+            return selectedNumbers.indexOf(n) !== -1;
+        });
+        console.log(correctNumbers);
+        
     }, 100);
+    
 }
+
+////////////////////////////////////////////////////////////////
+
 
