@@ -4,7 +4,7 @@ const pageDiv = document.getElementById("container");
 let RandomNumbers = [];
 
 while (RandomNumbers.length < 5) {
-    let number = numeroRandom(1, 100);
+    let number = numeroRandom(1, 99);
     if (RandomNumbers.indexOf(number)=== -1) {
         const paragraph = document.createElement("p");
         RandomNumbers.push(number);
