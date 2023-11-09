@@ -38,10 +38,12 @@ function ask5Numbers() {
             selectedNumbers.push(number);
         }
         console.log(`Numeri scelti: ${selectedNumbers}`);
+        //che succede qui?
         correctNumbers = randomNumbers.filter(function(n) {
             return selectedNumbers.indexOf(n) !== -1;
         });
-        console.log(correctNumbers);
+        console.log(`Hai indovinato ${correctNumbers.length} numeri. I numeri indovinati sono:${correctNumbers}`)
+        pageDiv.innerHTML = `Hai indovinato ${correctNumbers.length} numeri. I numeri indovinati sono:${correctNumbers}`;
         
     }, 100);
     
